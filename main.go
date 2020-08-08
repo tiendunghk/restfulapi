@@ -4,10 +4,8 @@ import (
 	"fmt"
 	"my-mod/database"
 	"my-mod/handler"
-	"my-mod/models"
 	rep "my-mod/repository"
 	imp "my-mod/repository/repo_implement"
-	"net/http"
 	"os"
 
 	"github.com/labstack/echo/v4"
@@ -15,16 +13,6 @@ import (
 
 var userImp rep.UserRepo
 
-func getAll(c echo.Context) error {
-	users, _ := userImp.Select()
-	return c.JSON(http.StatusOK, users)
-}
-func addUser(c echo.Context) error {
-	req := new(models.User)
-	c.Bind(req)
-	userImp.Insert(*req)
-	return c.JSON(http.StatusOK, "Insert thanh cong")
-}
 func main() {
 	fmt.Println("Xin chao cac ban hahahah")
 
@@ -37,6 +25,7 @@ func main() {
 
 	os.Setenv("POST", "8080")
 	a := os.Getenv("POST")
+
 	e.Logger.Fatal(e.Start(":" + a))
 
 }
