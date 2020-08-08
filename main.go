@@ -23,8 +23,7 @@ func main() {
 	e.GET("/users", handler.GetAll)
 	e.POST("/add", handler.AddUser)
 
-	os.Setenv("POST", "8080")
-	a := os.Getenv("POST")
+	a := os.Getenv("PORT")
 
 	e.Logger.Fatal(e.Start(":" + a))
 
