@@ -12,7 +12,16 @@ type MyDatabase struct {
 }
 
 type User struct {
-	Id     int    `json:"id"`
-	Name   string `json:"name"`
-	Gender string `json:"gender"`
+	Id       int    `json:"id"`
+	Name     string `json:"name"`
+	Gender   string `json:"gender"`
+	Password string `json:"password"`
+	IsAdmin  bool   `json:"admin"`
+}
+
+type Account struct {
+	Id       int    `json:"id"`
+	Name     string `json:"name"`
+	Password string `json:"password"`
+	Admin    bool   `json:"admin"`
 }
