@@ -8,6 +8,7 @@ import (
 	rep "my-mod/repository"
 	imp "my-mod/repository/repo_implement"
 	"net/http"
+	"os"
 
 	"github.com/labstack/echo/v4"
 )
@@ -34,5 +35,8 @@ func main() {
 	e.GET("/users", handler.GetAll)
 	e.POST("/add", handler.AddUser)
 
-	e.Logger.Fatal(e.Start(":8080"))
+	os.Setenv("POST", "8080")
+	a := os.Getenv("POST")
+	e.Logger.Fatal(e.Start(":" + a))
+
 }
